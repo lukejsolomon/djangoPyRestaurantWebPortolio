@@ -1,0 +1,16 @@
+{% extends 'specials/bootStrapTmplt.html' %}
+{% block content %}
+
+<h1>Blog</h1>
+<h2>We have written {{ blogs.count }} blog{{ blogs.count|pluralize }} </h2>
+<hr>
+{% for blog in blogs %}
+<a href="{% url 'blog:detail' blog.id %}">
+    <h2>{{ blog.title }}</h2>
+</a>
+<h4>{{ blog.date|date:'M d y' }}</h4>
+<p>{{ blog.description|truncatechars:100 }}</p>
+<hr>
+{% endfor %}
+
+{% endblock %}

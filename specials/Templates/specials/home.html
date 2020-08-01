@@ -1,0 +1,41 @@
+{% extends 'specials/bootStrapTmplt.html' %}
+{% block content %}
+
+<div class="row justify-content-center mb-3">
+    <div class="col-md-5 text-center">
+        <h1 id="hometext" class="font-weight-bold">The Pondersosa Bar <br> 12203 N 225th St, Valley, NE 68064</h1>
+    </div>
+</div>
+
+
+{% load static %}
+<div class="row justify-content-center my-3">
+    <div class="col-4.5">
+        <br>
+        <img src="{% static 'portfolio/pondoLongHorn.jpg' %}">
+        <br>
+    </div>
+</div>
+
+
+
+<hr>
+<div class="row">
+
+    {% for outline in outline %}
+    <div class="col-lg-4 col-md-6">
+
+        <img src="{{ outline.image.url }}" height=196 width=350>
+
+        <br>
+        {{ outline.title }}
+        <br>
+        {{ outline.description }}
+        <br> {% if outline.url %}
+        <a href="{{ outline.url }}">link</a>
+        {% endif %}
+    </div>
+    {% endfor %}
+</div>
+
+{% endblock %}
